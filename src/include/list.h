@@ -1,21 +1,24 @@
 #include <iostream>
 #include <vector>
+using namespace std;
 
 class List {
-    private:
-    // only the class itself
-    protected:
-    // inherits or belongs to class
     public:
-        // anything including the class
-        List() {}
-        ~List() {}
+    List(){  
+        //constructor
+    }
+    ~List(){
+        //destructor
+    }
+    vector<vector<string>> mainList;
+    vector<string> list;
+    string name;
+    int currentUserIndex;
 
-        std::vector<std::string> list;
-        std::string name;   
-        
-        void print_menu();
-        void print_list();
-        void add_item();
-        void delete_item();
+    void print_menu();
+    void print_list();
+    void add_item();
+    void delete_item();
+    bool find_userList();
+    void save_list();
 };

@@ -73,3 +73,36 @@ void List::print_list() {
     }
 
 }
+
+
+bool List::find_userList() {
+    bool userFound = false;
+    std::cout << "\n\n\n\n\n\n\n\n";
+    std::cout << "*** Welcome " << name << " ***\n";
+
+    for ( int user_index=0; user_index < (int)mainList.size(); user_index++) {
+        std::cout << mainList[user_index][0] << "\n";
+        if ( mainList[user_index][0] == name ) {
+            std::cout << "User has been found: " << mainList[user_index][0] << "\n";
+            list = mainList[user_index];
+            currentUserIndex = user_index;
+            userFound = true;
+            break;
+        }
+    }
+
+    if ( userFound == false ) {
+        list.push_back(name);
+        mainList.push_back(list);
+        currentUserIndex = (int)mainList.size()-1;
+    }
+
+    return userFound;
+
+}
+
+void List::save_list() {
+    std::cout << "Saving the list...\n";
+    mainList[currentUserIndex] = list;
+    print_menu();
+}
